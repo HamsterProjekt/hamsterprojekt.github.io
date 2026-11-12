@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HamsterProjekt: Hamster time tracker for KDE Plasma, with Markdown storage</title>
+  <meta name="description" content="HamsterProjekt keeps the Hamster time tracker alive: a KDE Plasma 6 panel widget and windows, and a backend that stores your time in plain Markdown files.">
+  <meta property="og:title" content="HamsterProjekt">
+  <meta property="og:description" content="The Hamster time tracker, revived: a KDE Plasma 6 widget and plain Markdown storage.">
+  <meta property="og:image" content="https://hamsterprojekt.github.io/assets/avatar.png">
+  <meta property="og:url" content="https://hamsterprojekt.github.io/">
+  <link rel="icon" href="assets/logo/hamsterprojekt.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/hamsterprojekt.css">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="hp-header">
+    <a class="brand" href="./">
+      <img src="assets/logo/hamsterprojekt.svg" alt="">
+      <span class="hp-wordmark">Hamster<span>Projekt</span></span>
+    </a>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#markdown">Markdown</a>
+      <a href="#install">Install</a>
+      <a href="#upstream">Upstream</a>
+      <a href="https://github.com/HamsterProjekt">GitHub</a>
+    </nav>
+    <button class="hp-button theme" id="theme" type="button" aria-label="Switch between light and dark">◐</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hp-container hero-grid">
+        <div>
+          <h1>Track your time from the Plasma panel. Keep it in plain text.</h1>
+          <p class="lead">HamsterProjekt keeps the <a href="https://github.com/projecthamster/hamster">Hamster</a>
+            time tracker alive and brings it to KDE Plasma 6, with a backend that stores
+            every activity in Markdown files you can read, edit and sync yourself.</p>
+          <p class="actions">
+            <a class="hp-button is-primary" href="#install">Install</a>
+            <a class="hp-button" href="https://github.com/HamsterProjekt/hamster-kde/releases/latest">Latest release</a>
+            <a class="hp-button" href="https://github.com/HamsterProjekt">Source on GitHub</a>
+          </p>
+          <p class="hp-muted small">Free software under the GNU GPL v3. An independent fork, not an official Project Hamster release.</p>
+        </div>
+
+        <!-- A mock of the panel widget's popup, drawn with the style kit -->
+        <div class="hp-card widget" aria-label="Example of the panel widget">
+          <div class="widget-head">
+            <span class="hp-status is-tracking">coding@work</span>
+            <span class="elapsed">1:24</span>
+          </div>
+          <div class="fake-input">activity@category, description, #tag</div>
+          <table class="hp-facts">
+            <tr>
+              <td class="hp-time">09:00</td>
+              <td><span class="hp-activity">coding</span><span class="hp-category">work</span>
+                <div class="hp-description">login bug</div>
+                <span class="hp-tag">backend</span><span class="hp-tag">billable</span></td>
+              <td class="hp-duration">1:30</td>
+            </tr>
+            <tr>
+              <td class="hp-time">10:30</td>
+              <td><span class="hp-activity">email</span><span class="hp-category">work</span></td>
+              <td class="hp-duration">0:30</td>
+            </tr>
+            <tr>
+              <td class="hp-time">11:00</td>
+              <td><span class="hp-activity">meeting</span><span class="hp-category">work</span></td>
+              <td class="hp-duration">1:00</td>
+            </tr>
+            <tr>
+              <td class="hp-time">13:10</td>
+              <td><span class="hp-activity">reading</span><span class="hp-category">learning</span></td>
+              <td class="hp-duration">0:40</td>
+            </tr>
+          </table>
+          <div class="hp-totals" role="img" aria-label="Work 80 %, learning 20 %">
+            <span style="--share: 80%"></span><span style="--share: 20%"></span>
+          </div>
+          <div class="hp-legend"><span>work 3:00</span><span>learning 0:40</span><span class="total">total 3:40</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="hp-container">
+      <h2>What it adds</h2>
+      <div class="hp-features">
+        <div class="hp-feature">
+          <img src="assets/features/plasma.svg" alt="">
+          <div><h3>A Plasma 6 panel widget</h3>
+            <p>Shows the current activity and its time in the panel. Start, stop and continue
+              activities from the popup, with autocompletion and the day's totals.</p></div>
+        </div>
+        <div class="hp-feature">
+          <img src="assets/features/markdown.svg" alt="">
+          <div><h3>Markdown storage</h3>
+            <p>Facts, activities, categories and tags in plain Markdown files instead of SQLite.
+              Edit them by hand, keep them in git, sync them with Syncthing or Nextcloud.</p></div>
+        </div>
+        <div class="hp-feature">
+          <img src="assets/features/service.svg" alt="">
+          <div><h3>Kirigami windows</h3>
+            <p>The overview, edit and settings windows rewritten with Qt Quick and Kirigami,
+              so they follow your Plasma theme. A service that runs without GTK sits underneath.</p></div>
+        </div>
+        <div class="hp-feature">
+          <img src="assets/features/compatible.svg" alt="">
+          <div><h3>Nothing taken away</h3>
+            <p>SQLite stays the default, the GTK windows are untouched, and Hamster's data model,
+              D-Bus methods and <code>activity@category, description, #tag</code> entry are unchanged.</p></div>
+        </div>
+        <div class="hp-feature">
+          <img src="assets/features/install.svg" alt="">
+          <div><h3>Easy to install</h3>
+            <p>A Flatpak with the widget next to it, or two git checkouts and one script.
+              Everything goes under your home directory.</p></div>
+        </div>
+        <div class="hp-feature">
+          <img src="assets/features/upstream.svg" alt="">
+          <div><h3>Side by side with upstream</h3>
+            <p>Its own <code>io.github.HamsterProjekt.*</code> names, so upstream Hamster
+              can stay installed next to it.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="markdown" class="band">
+      <div class="hp-container two-col">
+        <div>
+          <h2>Your time, in files you own</h2>
+          <p>With <code>HAMSTER_STORAGE=markdown</code> the Hamster service writes one file per month,
+            and one for your categories, activities and tags:</p>
+          <pre class="path">~/.local/share/hamster/markdown/2026-11.md
+~/.local/share/hamster/markdown/activities.md</pre>
+          <p>Each day is a heading, each activity a list item, written the way you would type it into
+            Hamster. Change a line in your editor and the widget picks it up.</p>
+        </div>
+        <pre class="file" aria-label="Example of a month file"><span class="c">2026-11.md</span>
+
+<b>## 2026-11-11</b>
+
+- 09:00 - 10:30 coding@work, login bug, #backend #billable
+- 10:30 - 11:00 email@work
+- 11:00 - 12:00 meeting@work
+- 13:10 - 13:50 reading@learning</pre>
+      </div>
+    </section>
+
+    <section id="install" class="hp-container">
+      <h2>Install</h2>
+      <p>For KDE Plasma 6; the guide has the packages for Kubuntu, KDE neon and Debian. Pick one way:</p>
+      <div class="cards">
+        <div class="hp-card">
+          <h3>Flatpak <span class="hp-muted">· quickest</span></h3>
+          <p>The windows and the Markdown backend in a sandbox, plus the panel widget. Download the latest release:</p>
+          <pre><code>for f in hamster-kde.flatpak hamster-kde.plasmoid install-flatpak-widget.sh; do
+  wget -N "https://github.com/HamsterProjekt/hamster-kde/releases/latest/download/$f"
+done
+flatpak install --user hamster-kde.flatpak
+sh install-flatpak-widget.sh</code></pre>
+          <p class="hp-muted small">Then add “Hamster Time Tracker” to a panel. The Flatpak keeps its files under <code>~/.var/app/</code>.</p>
+        </div>
+        <div class="hp-card">
+          <h3>From source <span class="hp-muted">· recommended</span></h3>
+          <p>Widget, windows and backend, running from two git checkouts and updated with <code>git pull</code>:</p>
+          <pre><code>git clone https://github.com/HamsterProjekt/hamster.git ~/projects/hamster
+git clone https://github.com/HamsterProjekt/hamster-kde.git ~/projects/hamster-kde
+cd ~/projects/hamster-kde && ./install.sh</code></pre>
+          <p class="hp-muted small">Needs a few packages first (PyQt6, Kirigami, PyGObject); the guide lists them per distribution.</p>
+        </div>
+      </div>
+      <p><a class="hp-button is-primary" href="https://github.com/HamsterProjekt/hamster-kde/blob/main/INSTALL.md">Full installation guide</a></p>
+    </section>
+
+    <section class="hp-container">
+      <h2>Repositories</h2>
+      <div class="cards">
+        <a class="hp-card repo" href="https://github.com/HamsterProjekt/hamster-kde">
+          <h3>hamster-kde</h3>
+          <p>The Plasma 6 panel widget and the Qt Quick / Kirigami windows. New code, inspired by
+            upstream's GNOME shell extension.</p>
+        </a>
+        <a class="hp-card repo" href="https://github.com/HamsterProjekt/hamster">
+          <h3>hamster</h3>
+          <p>The Hamster service and GTK windows, forked from projecthamster/hamster, with the
+            Markdown backend and a service that runs without GTK.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="upstream" class="hp-container">
+      <h2>Relationship to Project Hamster</h2>
+      <p>Hamster is a good tool, but upstream development has slowed: the last release, 3.0.3, is from
+        November 2023. HamsterProjekt is an independent fork that aims to keep it alive. It is not
+        affiliated with or endorsed by the upstream maintainers.</p>
+      <p>We would rather see upstream thrive than fork forever. Changes that make sense for everyone are
+        kept small so they can be offered upstream, and if upstream becomes active again we are happy to converge.</p>
+      <p>Hamster was written mainly by Toms Bauģis and Patryk Zawadzki, with contributions from many others,
+        and later maintained by Eric Goller and the <a href="https://github.com/projecthamster">Project Hamster</a>
+        community. All credit for Hamster itself goes to them.</p>
+      <p>Bug reports, patches and “this works on my distro” messages are all welcome:
+        see <a href="https://github.com/HamsterProjekt/.github/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="hp-container">
+      <span class="hp-wordmark small">Hamster<span>Projekt</span></span>
+      <span class="hp-muted">· GNU GPL v3 ·
+        <a href="https://github.com/HamsterProjekt">GitHub</a> ·
+        <a href="https://github.com/HamsterProjekt/hamster-kde/issues">Report a bug</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // Light/dark toggle; remembers the choice, otherwise follows the system.
+    (function () {
+      var root = document.documentElement, key = 'hp-theme';
+      var saved = localStorage.getItem(key);
+      if (saved) root.dataset.theme = saved;
+      document.getElementById('theme').addEventListener('click', function () {
+        var dark = root.dataset.theme
+          ? root.dataset.theme === 'dark'
+          : matchMedia('(prefers-color-scheme: dark)').matches;
+        root.dataset.theme = dark ? 'light' : 'dark';
+        localStorage.setItem(key, root.dataset.theme);
+      });
+    })();
+  </script>
+</body>
+</html>
